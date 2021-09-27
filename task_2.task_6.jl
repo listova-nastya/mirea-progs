@@ -1,7 +1,7 @@
 #ДАНО: На ограниченном внешней прямоугольной рамкой поле имеется ровно одна внутренняя перегородка в форме прямоугольника. 
 #Робот - в произвольной клетке поля между внешней и внутренней перегородками. 
 #РЕЗУЛЬТАТ: Робот - в исходном положении и по всему периметру внутренней перегородки поставлены маркеры.
-function move_to_startplace(r::Robot)
+function move_to_startplace!(r::Robot)
     x = 0
     y = 0
     while !(isborder(r, HorizonSide(2)) && isborder(r, HorizonSide(3)))
@@ -69,7 +69,7 @@ function move_to_beginplace!(r::Robot, X, Y)
 end
 
 
-function search_object(r::Robot)
+function search_object!(r::Robot)
     x = 0
     y = 0
     i = 2
@@ -108,7 +108,7 @@ function search_object(r::Robot)
     return ErrorException
 end
 
-function perimetr_around_object(r::Robot, side)
+function perimetr_around_object!(r::Robot, side)
     check = false
 
     while !check
